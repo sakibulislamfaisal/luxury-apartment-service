@@ -1,3 +1,25 @@
 .default-button:hover {
   background-color: green;
 }
+.img-section img {
+  width: 100%;
+  height: 350px;
+  margin-top: -12px;
+  border-radius: 3px;
+}
+
+@media (max-width: 575px) {
+  .img-section img {
+    width: 100%;
+    height: 350px;
+    margin-top: 16px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .img-section img {
+    width: 100%;
+    height: 350px;
+    margin-top: 16px;
+  }
+}

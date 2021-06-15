@@ -1,6 +1,8 @@
 import React from "react";
 import "./Banner.css";
 import "./Banner.scss";
+import bannerImage from "../../assets/Image/top.png";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
@@ -17,8 +19,16 @@ const Banner = () => {
                   Online Easte Agency, the mordern way to sell your own home,
                   You can use Griffin Residential to market your property
                 </p>
-                <button class="default-button uppercase">Booking</button>
+                <Link to="/booking">
+                  {" "}
+                  <button class="default-button uppercase">Booking</button>
+                </Link>
               </div>
+            </div>
+          </div>
+          <div className="col-xs-12 col-sm-12 col-md-6">
+            <div className="img-section">
+              <img src={bannerImage} className="img-fluid" alt="banner-img" />
             </div>
           </div>
         </div>
