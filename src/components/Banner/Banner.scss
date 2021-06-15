@@ -1,0 +1,16 @@
+@import "../../Style/variable";
+@import "../../Style/mixin";
+.banner-h1 {
+  color: $h1-color;
+  font-size: $h1-size;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+.text-p-color {
+  color: $p-color;
+}
+
+.default-button {
+  @include default-button;
+}

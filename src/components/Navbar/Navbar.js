@@ -4,6 +4,7 @@ import "./Navbar.css";
 import logo from "../../assets/Image/heading.PNG";
 
 function Navbar() {
+  document.title = "Navbar Page";
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -47,7 +48,7 @@ function Navbar() {
           </li>
           <li className="nav-item">
             <Link to="/sign-up" className="nav-links" style={{ style }}>
-              <button className="hover:bg-pink-700 text-white  py-1 -mt-1 px-6 rounded-sm ">
+              <button className="hover:bg-pink-700 text-white   py-1 -mt-1 px-6 rounded-sm ">
                 Login
               </button>
             </Link>
