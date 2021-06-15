@@ -125,6 +125,10 @@
     color: black;
     font-size: 1.5rem;
   } */
+}
 
- 
+.rounded-sm {
+  background-color: #251d58;
+  color: #ffffff;
+  border-radius: 3px;
 }
