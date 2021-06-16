@@ -1,0 +1,12 @@
+.form-container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-container .form-control {
+  padding: 12px;
+  color: black;
+  border-radius: 3px;
+  border: 1px solid indigo;
+  font-size: 16px;
+}

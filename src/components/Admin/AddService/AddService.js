@@ -20,18 +20,17 @@ const AddService = () => {
       .max(30, "Service title at most 30 characters!"),
     price: Yup.number().positive().required("Service Price is required!"),
     description: Yup.string().required("Service description is required!"),
-    image: Yup.string().required("Service img is required!"),
   });
   const formOptions = { resolver: yupResolver(validationSchema) };
 
   // get functions to build form with useForm() hook
-  const { register, handleSubmit,  formState } = useForm(formOptions);
+  const { register, handleSubmit, formState } = useForm(formOptions);
   const { errors } = formState;
 
   let history = useHistory();
   const handleFileChange = (event) => {
     //console.log(e.target.files[0]);
-   // console.log(event.target.files[0]);
+    // console.log(event.target.files[0]);
     const imageData = new FormData();
     imageData.set("key", "18ade17cde2c79bfba3f1032fe60cd36");
     imageData.append("image", event.target.files[0]);
@@ -66,10 +65,9 @@ const AddService = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-         setSuccessMsg(true);
+        setSuccessMsg(true);
       });
-     history.push("/admin-manage-service");
-  
+    history.push("/admin-manage-service");
   };
 
   //success message
@@ -138,6 +136,7 @@ const AddService = () => {
             <div>
               <label>Service Image</label>
               <input
+                required
                 type="file"
                 name="image"
                 {...register("image")}

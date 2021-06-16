@@ -7,6 +7,8 @@ import Navigation from "./components/Admin/Navigation/Navigation";
 import AddService from "./components/Admin/AddService/AddService";
 import ManageService from "./components/Admin/ManageService/ManageService";
 import Services from "./components/Services/Services";
+import Footer from "./components/Footer/Footer";
+import Contact from "./components/Contact/Contact";
 function App() {
   return (
     <>
@@ -17,6 +19,8 @@ function App() {
             <Banner></Banner>
             <Project></Project>
             <Services></Services>
+            <Contact></Contact>
+            <Footer></Footer>
           </Route>
 
           <Route path="/admin">
