@@ -6,6 +6,7 @@ import Project from "./components/Projects/Project";
 import Navigation from "./components/Admin/Navigation/Navigation";
 import AddService from "./components/Admin/AddService/AddService";
 import ManageService from "./components/Admin/ManageService/ManageService";
+import Services from "./components/Services/Services";
 function App() {
   return (
     <>
@@ -15,7 +16,9 @@ function App() {
             <Navbar></Navbar>
             <Banner></Banner>
             <Project></Project>
+            <Services></Services>
           </Route>
+
           <Route path="/admin">
             <Navigation></Navigation>
           </Route>

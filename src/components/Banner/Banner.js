@@ -21,7 +21,7 @@ const Banner = () => {
                 </p>
                 <Link to="/booking">
                   {" "}
-                  <button class="default-button uppercase">Booking</button>
+                  <button className="default-button uppercase">Booking</button>
                 </Link>
               </div>
             </div>

@@ -1,0 +1,10 @@
+@import "../../Style/mixin";
+@import "../../Style/variable";
+
+.default-button {
+  @include default-button;
+}
+.description {
+  color: $p-color;
+  font-size: 12px;
+}
