@@ -1,19 +1,22 @@
 .navbar {
+  background-color: #1f1632;
   height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: 500;
+  color: #fff;
 }
 
 .navbar-logo {
   color: black;
   justify-self: start;
-  margin-left: 20px;
+  margin-left: 40px;
+  margin-top: -20px;
   cursor: pointer;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 .nav-menu {
@@ -30,11 +33,11 @@
 .nav-item {
   display: flex;
   align-items: center;
-  height: 80px;
+  height: 65px;
 }
 
 .nav-links {
-  color: black;
+  color: white;
   text-decoration: none;
   padding: 0rem 1rem;
 }
@@ -46,7 +49,7 @@
 } */
 
 .fa-bars {
-  color: black;
+  color: white;
 }
 
 .nav-links-mobile {
@@ -75,10 +78,12 @@
   }
 
   .nav-menu.active {
+    background: #1f1632;
     left: 0;
     opacity: 1;
     transition: all 0.5s ease;
     z-index: 1;
+    color: #fff;
   }
 
   .nav-links {
@@ -111,7 +116,7 @@
   }
 
   .fa-times {
-    color: black;
+    color: white;
     font-size: 2rem;
   }
 
@@ -132,4 +137,40 @@
   color: #ffffff;
   border-radius: 3px;
   font-weight: 400;
+}
+
+@media (max-width: 575px) {
+  .navbar-logo {
+    color: black;
+    justify-self: start;
+    margin-left: -12px;
+    margin-top: -26px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .navbar-logo {
+    color: black;
+    justify-self: start;
+    margin-left: -12px;
+    margin-top: -26px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .navbar-logo {
+    color: black;
+    justify-self: start;
+    margin-left: -12px;
+    margin-top: -26px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1rem;
+  }
 }
