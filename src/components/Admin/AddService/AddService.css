@@ -1,0 +1,124 @@
+.add-service-section {
+  /* background-color: #1f1632; */
+  color: #fff;
+}
+.default-button {
+  background-color: #1f1632;
+  color: #fff;
+  padding: 10px 30px;
+  font-size: 18px;
+  border-radius: 3px;
+  text-align: center;
+  margin-top: 10px;
+}
+.add-service-form {
+  min-height: 700px !important;
+}
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.error-form {
+  color: red;
+}
+
+.error-form::before {
+  display: inline;
+  content: "⚠";
+  font-size: 12px;
+}
+
+input,
+textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid blue;
+  padding: 10px 15px;
+  margin-bottom: 1px;
+  font-size: 17px;
+  color: black;
+}
+
+label {
+  line-height: 1.4;
+  text-align: left;
+  display: block;
+  margin-bottom: 2px;
+  margin-top: 8px;
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+pre {
+  color: white;
+}
+
+hr {
+  margin-top: 30px;
+}
+
+* {
+  box-sizing: border-box !important;
+}
+
+.others {
+  position: absolute;
+  display: inline;
+  margin-left: 60px;
+}
+.first-line {
+  position: relative;
+  top: 230px;
+  max-width: 380px !important;
+  border: 1px solid rgb(100, 52, 52);
+  width: 190px;
+}
+.other-part {
+  display: flex;
+  flex-direction: row;
+}
+.change {
+  margin-left: 480px;
+}
+.google-icon {
+  color: black;
+  font-size: 22px;
+  margin-right: 10px;
+}
+.form-group .google {
+  font-size: 18px;
+  background-color: white;
+  border-radius: 40px;
+  color: black !important;
+  margin: 10px;
+}
+.checkbox {
+  margin-left: -180px !important;
+}
+
+@media (max-width: 575px) {
+  .change {
+    margin-left: 100px;
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .change {
+    margin-left: 100px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .change {
+    margin-left: 230px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .change {
+    margin-left: 280px;
+  }
+}
