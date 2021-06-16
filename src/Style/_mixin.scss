@@ -6,3 +6,11 @@
   border-radius: 3px;
   text-align: center;
 }
+
+@mixin project-image {
+  width: 93%;
+  height: 250px;
+  object-fit: cover;
+  margin-top: 10px;
+  border-radius: 3px;
+}

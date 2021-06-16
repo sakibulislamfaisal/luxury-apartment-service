@@ -1,0 +1,5 @@
+@import "../../Style/mixin";
+
+.project-image img {
+  @include project-image;
+}
