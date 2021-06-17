@@ -11,22 +11,11 @@ import Footer from "./components/Footer/Footer";
 import Contact from "./components/Contact/Contact";
 import SignUp from "./components/SignUp/SignUp";
 import Login from "./components/Login/Login";
-
-//authentication with jwt expire or not
-
+import UserList from "./components/Admin/UserList/UserList";
+import NotFound from "./components/NotFound/NotFound";
+import ServiceDetail from "./components/ServiceDetail/ServiceDetail";
 function App() {
-  // if (localStorage.jwtToken) {
-  //   setAuthenticationToken(localStorage.jwtToken);
-  //   jwtToken.verify(localStorage.jwtToken, "secret", function (err, decode) {
-  //     console.log("Decode", decode);
-  //     if (err) {
-  //       store.dispatch(userLogout());
-  //     } else {
-  //       console.log(decode);
-  //       store.dispatch(setCurrentUser(decode));
-  //     }
-  //   });
-  // }
+ 
 
   return (
     <>
@@ -53,6 +42,12 @@ function App() {
             <Footer></Footer>
           </Route>
 
+          <Route path="/service-booking/:id">
+                <Navbar/>
+                <ServiceDetail></ServiceDetail>
+                <Footer></Footer>
+            </Route>
+
           <Route path="/admin">
             <Navigation></Navigation>
           </Route>
@@ -63,6 +58,15 @@ function App() {
           <Route path="/admin-manage-service">
             <Navigation></Navigation>
             <ManageService></ManageService>
+          </Route>
+          <Route path="/admin-all-user">
+            <Navigation></Navigation>
+             <UserList></UserList>
+          
+          </Route>
+          <Route path="*">
+           
+            <NotFound/>
           </Route>
         </Switch>
       </Router>

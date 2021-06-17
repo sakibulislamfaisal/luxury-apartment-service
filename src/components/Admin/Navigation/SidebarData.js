@@ -7,6 +7,7 @@ import {
   faUserPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
 export const SidebarData = [
   {
     title: "Home",
@@ -30,6 +31,13 @@ export const SidebarData = [
     title: "Make Admin",
     path: "/add-new-admin",
     icon: <FontAwesomeIcon icon={faUserPlus} />,
+    cName: "nav-text",
+  },
+
+  {
+    title: "All User",
+    path: "/admin-all-user",
+    icon: <FontAwesomeIcon icon={faUserCircle} />,
     cName: "nav-text",
   },
 
