@@ -13,7 +13,7 @@ const Services = () => {
     axios
       .get("http://localhost:4200/api/service/all-service")
       .then((res) => {
-        console.log(res);
+       // console.log(res);
         setService(res.data.data);
       })
       .catch(function (error) {

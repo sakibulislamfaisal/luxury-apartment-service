@@ -9,7 +9,25 @@ import ManageService from "./components/Admin/ManageService/ManageService";
 import Services from "./components/Services/Services";
 import Footer from "./components/Footer/Footer";
 import Contact from "./components/Contact/Contact";
+import SignUp from "./components/SignUp/SignUp";
+import Login from "./components/Login/Login";
+
+//authentication with jwt expire or not
+
 function App() {
+  // if (localStorage.jwtToken) {
+  //   setAuthenticationToken(localStorage.jwtToken);
+  //   jwtToken.verify(localStorage.jwtToken, "secret", function (err, decode) {
+  //     console.log("Decode", decode);
+  //     if (err) {
+  //       store.dispatch(userLogout());
+  //     } else {
+  //       console.log(decode);
+  //       store.dispatch(setCurrentUser(decode));
+  //     }
+  //   });
+  // }
+
   return (
     <>
       <Router>
@@ -20,6 +38,18 @@ function App() {
             <Project></Project>
             <Services></Services>
             <Contact></Contact>
+            <Footer></Footer>
+          </Route>
+
+          <Route path="/sign-up">
+            <Navbar></Navbar>
+            <SignUp />
+            <Footer></Footer>
+          </Route>
+
+          <Route path="/login">
+            <Navbar></Navbar>
+            <Login />
             <Footer></Footer>
           </Route>
 

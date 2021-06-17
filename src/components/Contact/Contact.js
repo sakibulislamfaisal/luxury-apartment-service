@@ -16,46 +16,46 @@ const Contact = () => {
               className="form-container py-3"
             >
               <div className="form-group">
-                <label for="name">Name</label>
+                <label htmlFor="name">Name</label>
                 <input
                   type="text"
                   id="name"
                   name="Name"
                   className="form-control"
                   placeholder="Enter Your Username"
-                  autocomplete="off"
+                  autoComplete="off"
                 />
               </div>
               <div className="form-group">
-                <label for="email">Email</label>
+                <label htmlFor="email">Email</label>
                 <input
                   type="email"
                   id="email"
                   name="Email"
                   className="form-control"
                   placeholder="Enter Your Email"
-                  autocomplete="off"
+                  autoComplete="off"
                 />
               </div>
               <div className="form-group">
-                <label for="email">Phone Number</label>
+                <label htmlFor="email">Phone Number</label>
                 <input
                   type="text"
                   id="email"
                   name="Email"
                   className="form-control"
                   placeholder="Enter Your Phone Number"
-                  autocomplete="off"
+                  autoComplete="off"
                 />
               </div>
               <div className="form-group">
-                <label for="message">Message</label>
+                <label htmlFor="message">Message</label>
                 <textarea
                   name="Message"
                   id="message"
                   className="form-control"
                   placeholder="Enter Your Message"
-                  autocomplete="off"
+                  autoComplete="off"
                 ></textarea>
               </div>
               <button className="bg-pink-700 px-6 text-white py-2 rounded-sm mt-3 d-block mx-auto">

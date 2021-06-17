@@ -3,7 +3,7 @@ import React from "react";
 import "./SingleService.css";
 import "./SingleService.scss";
 const SingleService = ({ service }) => {
-  console.log(service);
+ // console.log(service);
   return (
     <div className="col-xs-12 col-sm-12 col-md-4 py-3 ">
       <div className="single-service-image d-flex justify-content-center shadow-2xl">
