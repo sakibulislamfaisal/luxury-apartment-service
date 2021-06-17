@@ -5,11 +5,12 @@ import { useParams } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import Payment from "../Payment/Payment";
 import Paypal from "../Payment/Paypal";
 
 const ServiceDetail = (props) => {
+  document.title = "Service Detail";
   const { id } = useParams();
   const [bookingService, setBookingService] = useState([]);
   const username = useSelector((state) => state.user.loggedInUserInfo.username);

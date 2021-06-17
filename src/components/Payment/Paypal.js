@@ -12,7 +12,7 @@ const Paypal = ({ handlePlaceOrder }) => {
             purchase_units: [
               {
                 amount: {
-                  value: "0.01",
+                  value: "10.00",
                 },
               },
             ],

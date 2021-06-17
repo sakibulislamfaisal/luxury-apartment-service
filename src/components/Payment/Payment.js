@@ -1,7 +1,6 @@
 import React from "react";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import CheckoutForm from "./CheckoutForm";
 import SplitForm from "./SplitForm";
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid

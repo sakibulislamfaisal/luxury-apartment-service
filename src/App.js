@@ -14,9 +14,9 @@ import Login from "./components/Login/Login";
 import UserList from "./components/Admin/UserList/UserList";
 import NotFound from "./components/NotFound/NotFound";
 import ServiceDetail from "./components/ServiceDetail/ServiceDetail";
+import UserOrder from "./components/UserOrder/UserOrder";
+import ReviewByUser from "./components/ReviewByUser/ReviewByUser";
 function App() {
- 
-
   return (
     <>
       <Router>
@@ -43,10 +43,20 @@ function App() {
           </Route>
 
           <Route path="/service-booking/:id">
-                <Navbar/>
-                <ServiceDetail></ServiceDetail>
-                <Footer></Footer>
-            </Route>
+            <Navbar />
+            <ServiceDetail></ServiceDetail>
+            <Footer></Footer>
+          </Route>
+          <Route path="/orders">
+            <Navbar />
+            <UserOrder />
+            <Footer></Footer>
+          </Route>
+          <Route path="/review">
+            <Navbar />
+            <ReviewByUser />
+            <Footer></Footer>
+          </Route>
 
           <Route path="/admin">
             <Navigation></Navigation>
@@ -61,12 +71,10 @@ function App() {
           </Route>
           <Route path="/admin-all-user">
             <Navigation></Navigation>
-             <UserList></UserList>
-          
+            <UserList></UserList>
           </Route>
           <Route path="*">
-           
-            <NotFound/>
+            <NotFound />
           </Route>
         </Switch>
       </Router>

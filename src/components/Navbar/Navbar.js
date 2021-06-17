@@ -43,8 +43,8 @@ function Navbar() {
           </li>
 
           <li className="nav-item">
-            <Link to="/services" className="nav-links">
-              Services
+            <Link to="/review" className="nav-links">
+              Review
             </Link>
           </li>
           <li className="nav-item">

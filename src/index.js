@@ -28,9 +28,7 @@ if (sessionStorage.jwtToken) {
   setAuthenticationToken(sessionStorage.jwtToken);
   store.dispatch(setCurrentUser(jwt_decode(sessionStorage.jwtToken)));
 }
-else{
-    
-}
+
 ReactDOM.render(
   <Provider store={store}>
     <App />
