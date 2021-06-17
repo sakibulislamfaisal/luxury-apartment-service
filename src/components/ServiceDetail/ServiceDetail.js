@@ -6,12 +6,17 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
+import Payment from "../Payment/Payment";
+import Paypal from "../Payment/Paypal";
+
 const ServiceDetail = (props) => {
   const { id } = useParams();
   const [bookingService, setBookingService] = useState([]);
   const username = useSelector((state) => state.user.loggedInUserInfo.username);
   const email = useSelector((state) => state.user.loggedInUserInfo.email);
-  console.log(username, email);
+  const [stripe, setStripe] = useState(false);
+  const [paypal, setPaypal] = useState(false);
+  // console.log(username, email);
   useEffect(() => {
     fetch("http://localhost:4200/api/service/" + id)
       .then((response) => response.json())
@@ -30,13 +35,42 @@ const ServiceDetail = (props) => {
   const { register, handleSubmit, formState } = useForm(formOptions);
   const { errors } = formState;
 
+  const [userServiceData, setUserServiceData] = useState(null);
+
   const onSubmit = (data, event) => {
     const userData = {
       username: data.username,
       email: data.email,
       title: data.title,
     };
-    console.log(userData);
+    setUserServiceData(userData);
+  };
+  const { price, title, image } = bookingService;
+  //console.log(userServiceData);
+
+  const handlePlaceOrder = (payment) => {
+    const orderDetail = {
+      email: email,
+      title: title,
+      image: image,
+      username: username,
+      payment: payment,
+      price: price,
+      creation: new Date().toDateString(),
+    };
+    //console.log(data)
+    fetch("http://localhost:4200/api/service/order", {
+      method: "POST",
+      body: JSON.stringify(orderDetail),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((res) => res.json())
+      .then((order) => {
+        console.log(order);
+        //  alert('Order Placed Successfully by Order Id is  : ' + order._id);
+      });
   };
 
   return (
@@ -46,7 +80,10 @@ const ServiceDetail = (props) => {
           Book Now Your Service
         </h5>
         <div className="row">
-          <div className="col-xs-12 col-sm-12 col-md-6">
+          <div
+            className="col-xs-12 col-sm-12 col-md-12"
+            style={{ display: userServiceData ? "none" : "block" }}
+          >
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="form-group">
                 <div>
@@ -58,6 +95,7 @@ const ServiceDetail = (props) => {
                     {...register("username")}
                     className="placeholder-pink-700  "
                     autoComplete="off"
+                    readOnly
                   />
                   {errors.username && (
                     <p className="error-form">{errors.username.message}</p>
@@ -74,6 +112,7 @@ const ServiceDetail = (props) => {
                     {...register("email")}
                     className="placeholder-pink-700  "
                     autoComplete="off"
+                    readOnly
                   />
                   {errors.email && (
                     <p className="error-form">{errors.email.message}</p>
@@ -93,7 +132,6 @@ const ServiceDetail = (props) => {
                     autoComplete="off"
                     readOnly
                   />
-                
                 </div>
               </div>
               <div className="form-group">
@@ -101,8 +139,49 @@ const ServiceDetail = (props) => {
               </div>
             </form>
           </div>
-          <div className="col-xs-12 col-sm-12 col-md-6">
-            <h1>Payment Information</h1>
+          <div
+            className="col-xs-12 col-sm-12 col-md-12"
+            style={{ display: userServiceData ? "block" : "none" }}
+          >
+            <h6 className="text-center font-bold">Choose Payment Method</h6>
+            <div className="d-flex justify-content-center">
+              <div className="text-center m-4">
+                <input
+                  type="radio"
+                  name="stripe"
+                  id=""
+                  onClick={() => setStripe(!stripe)}
+                />
+                Stripe Credit Card
+              </div>
+              <div className="text-center m-4">
+                <input
+                  type="radio"
+                  name="stripe"
+                  id=""
+                  onClick={() => setPaypal(!paypal)}
+                />
+                PayPal
+              </div>
+            </div>
+          </div>
+          {/* stripe payment section */}
+          <div
+            className=" col-xs-12 col-sm-12 col-md-12"
+            style={{ display: stripe ? "block" : "none" }}
+          >
+            <h4 className="text-center">Payment to Checkout</h4>
+            <hr className=" border border-primary font-bold w-50 text-center d-block mx-auto" />
+            <Payment handlePlaceOrder={handlePlaceOrder}></Payment>
+          </div>
+          {/* PayPal Integration */}
+          <div
+            className=" col-xs-12 col-sm-12 col-md-12 text-center"
+            style={{ display: paypal ? "block" : "none" }}
+          >
+            <h4 className="text-center">Payment to Checkout</h4>
+            <hr className=" border border-primary font-bold w-50 text-center d-block mx-auto" />
+            <Paypal handlePlaceOrder={handlePlaceOrder} />
           </div>
         </div>
       </div>

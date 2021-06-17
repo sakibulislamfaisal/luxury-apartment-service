@@ -42,7 +42,6 @@ function Navbar() {
             </Link>
           </li>
 
-         
           <li className="nav-item">
             <Link to="/services" className="nav-links">
               Services
@@ -55,10 +54,15 @@ function Navbar() {
           </li>
 
           {username && sessionStorage.jwtToken && (
-            <NavDropdown
-              title={username}
-              id="nav-dropdown"
-            >
+            <li className="nav-item">
+              <Link to="/orders" className="nav-links">
+                Order
+              </Link>
+            </li>
+          )}
+
+          {username && sessionStorage.jwtToken && (
+            <NavDropdown title={username} id="nav-dropdown">
               <Link
                 style={{ style }}
                 to="/user-profile"
