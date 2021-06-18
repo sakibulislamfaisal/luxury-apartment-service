@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 
 const Paypal = ({ handlePlaceOrder }) => {
-  console.log(handlePlaceOrder);
+ // console.log(handlePlaceOrder);
   useEffect(() => {
     window.paypal
       .Buttons({

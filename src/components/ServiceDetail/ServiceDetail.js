@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { useForm } from "react-hook-form";
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Payment from "../Payment/Payment";
 import Paypal from "../Payment/Paypal";
 
@@ -72,6 +72,15 @@ const ServiceDetail = (props) => {
         console.log(order);
         //  alert('Order Placed Successfully by Order Id is  : ' + order._id);
       });
+  };
+
+  const handlePaypal = () => {
+    setPaypal(true);
+    setStripe(false);
+  };
+  const handleStripe = () => {
+    setStripe(true);
+    setPaypal(false);
   };
 
   return (
@@ -149,41 +158,48 @@ const ServiceDetail = (props) => {
               <div className="text-center m-4">
                 <input
                   type="radio"
-                  name="stripe"
-                  id=""
-                  onClick={() => setStripe(!stripe)}
+                  name="paypal"
+                  id="paypal"
+                  onClick={handleStripe}
+                  className="cursor-pointer"
                 />
                 Stripe Credit Card
               </div>
               <div className="text-center m-4">
                 <input
+                  className="cursor-pointer"
                   type="radio"
-                  name="stripe"
-                  id=""
-                  onClick={() => setPaypal(!paypal)}
+                  name="paypal"
+                  id="paypal"
+                  onClick={handlePaypal}
                 />
                 PayPal
               </div>
             </div>
           </div>
           {/* stripe payment section */}
-          <div
-            className=" col-xs-12 col-sm-12 col-md-12"
-            style={{ display: stripe ? "block" : "none" }}
-          >
-            <h4 className="text-center">Payment to Checkout</h4>
-            <hr className=" border border-primary font-bold w-50 text-center d-block mx-auto" />
-            <Payment handlePlaceOrder={handlePlaceOrder}></Payment>
-          </div>
+
+          {stripe && (
+            <div
+              className=" col-xs-12 col-sm-12 col-md-12"
+              style={{ display: stripe ? "block" : "none" }}
+            >
+              <h4 className="text-center">Payment to Checkout</h4>
+              <hr className=" border border-primary font-bold w-50 text-center d-block mx-auto" />
+              <Payment handlePlaceOrder={handlePlaceOrder}></Payment>
+            </div>
+          )}
           {/* PayPal Integration */}
-          <div
-            className=" col-xs-12 col-sm-12 col-md-12 text-center"
-            style={{ display: paypal ? "block" : "none" }}
-          >
-            <h4 className="text-center">Payment to Checkout</h4>
-            <hr className=" border border-primary font-bold w-50 text-center d-block mx-auto" />
-            <Paypal handlePlaceOrder={handlePlaceOrder} />
-          </div>
+          {paypal && (
+            <div
+              className=" col-xs-12 col-sm-12 col-md-12 text-center"
+              style={{ display: paypal ? "block" : "none" }}
+            >
+              <h4 className="text-center">Payment to Checkout</h4>
+              <hr className=" border border-primary font-bold w-50 text-center d-block mx-auto" />
+              <Paypal handlePlaceOrder={handlePlaceOrder} />
+            </div>
+          )}
         </div>
       </div>
     </div>

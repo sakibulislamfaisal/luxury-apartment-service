@@ -15,7 +15,7 @@ const ReviewByCustomer = ({ review, isActive }) => {
           className="img-fluid card-image ml-2 mt-3"
           src={image}
         />
-        <Card.Title className="mt-5 ml-5">{name}</Card.Title>
+        <Card.Title className="mt-5 ml-4">{name}</Card.Title>
       </div>
       <Card.Body>
         <Card.Text className="text-center">{company}</Card.Text>
