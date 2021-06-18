@@ -2,12 +2,14 @@ import React from "react";
 import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
 import {
+ 
   faPlusCircle,
   faShoppingBag,
   faUserPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
+
 export const SidebarData = [
   {
     title: "Home",
@@ -47,6 +49,8 @@ export const SidebarData = [
     icon: <FontAwesomeIcon icon={faShoppingBag} />,
     cName: "nav-text",
   },
+
+ 
   // {
   //   title: "User Login",
   //   path: "/login",

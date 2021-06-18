@@ -48,7 +48,7 @@ function Navbar() {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/admin" className="nav-links">
+            <Link to="/admin-login" className="nav-links">
               Admin
             </Link>
           </li>

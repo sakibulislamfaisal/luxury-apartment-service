@@ -21,9 +21,14 @@ import AllOrder from "./components/Admin/AllOrder/AllOrder";
 import MakeAdmin from "./components/Admin/MakeAdmin/MakeAdmin";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Welcome from "./components/Admin/Welcome/Welcome";
+import {
+  AuthProvider,
+  AdminPrivateRoute,
+} from "./components/Admin/Login/Login";
+import AdminLogin from "./components/Admin/Login/AdminLogin";
 function App() {
   return (
-    <>
+    <AuthProvider>
       <Router>
         <Switch>
           <Route exact path="/">
@@ -64,37 +69,42 @@ function App() {
             <Footer></Footer>
           </Route>
 
-          <Route path="/admin">
+          <Route path="/admin-login">
             <Navigation></Navigation>
-            <Welcome/>
+            <Welcome />
+            <AdminLogin />
           </Route>
+
+          <AdminPrivateRoute path="/admin">
+            <Navigation></Navigation>
+          </AdminPrivateRoute>
           <Route path="/admin-add-service">
             <Navigation></Navigation>
             <AddService></AddService>
           </Route>
-          <Route path="/admin-manage-service">
+          <AdminPrivateRoute path="/admin-manage-service">
             <Navigation></Navigation>
             <ManageService></ManageService>
-          </Route>
-          <Route path="/admin-all-user">
+          </AdminPrivateRoute>
+          <AdminPrivateRoute path="/admin-all-user">
             <Navigation></Navigation>
             <UserList></UserList>
-          </Route>
-          <Route path="/add-new-admin">
+          </AdminPrivateRoute>
+          <AdminPrivateRoute path="/add-new-admin">
             <Navigation></Navigation>
             <MakeAdmin />
-          </Route>
+          </AdminPrivateRoute>
 
-          <Route path="/admin-all-order-list">
+          <AdminPrivateRoute path="/admin-all-order-list">
             <Navigation></Navigation>
             <AllOrder />
-          </Route>
+          </AdminPrivateRoute>
           <Route path="*">
             <NotFound />
           </Route>
         </Switch>
       </Router>
-    </>
+    </AuthProvider>
   );
 }
 
