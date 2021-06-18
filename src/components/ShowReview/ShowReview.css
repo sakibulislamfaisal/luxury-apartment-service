@@ -1,0 +1,42 @@
+.bg-transparent.card {
+  border: 4px solid transparent;
+  border-radius: 20px;
+  transition: 0.7;
+  cursor: pointer;
+}
+
+.active {
+  border: 4px solid indigo !important;
+  border-radius: 20px;
+}
+
+.bg-transparent.card:hover {
+  border: 4px solid green;
+  border-radius: 20px;
+}
+
+.not-active::after {
+  content: "";
+  position: absolute;
+  background-image: linear-gradient(
+    rgba(100, 57, 57, 0.1),
+    rgba(126, 32, 32, 0.6)
+  );
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+}
+.card-image {
+  width: 100px !important;
+  height: 100px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: green !important;
+  font-weight: bold;
+}
+
+.swiper-scrollbar-drag {
+  background: deeppink !important;
+}

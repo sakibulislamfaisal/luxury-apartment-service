@@ -12,10 +12,13 @@ const ReviewByUser = () => {
   const validationSchema = Yup.object().shape({
     name: Yup.string()
       .required("name  is required!")
-      .min(6, "Service title at least 6 characters!")
-      .max(15, "Service title at most 15 characters!"),
+      .min(6, "Review at least 6 characters!")
+      .max(15, "Review at most 15 characters!"),
     company: Yup.string().required("company is required!"),
-    description: Yup.string().required("Service description is required!"),
+    description: Yup.string()
+      .required("Review description is required!")
+      .min(30, "Review  at least 30 characters!")
+      .max(80, "Review at most 80 characters!"),
   });
   const formOptions = { resolver: yupResolver(validationSchema) };
 
@@ -94,7 +97,7 @@ const ReviewByUser = () => {
           </div>
           <div className="form-group">
             <div>
-              <label>Company</label>
+              <label>Company/Designation</label>
               <input
                 type="text"
                 name="company"

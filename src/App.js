@@ -16,6 +16,7 @@ import NotFound from "./components/NotFound/NotFound";
 import ServiceDetail from "./components/ServiceDetail/ServiceDetail";
 import UserOrder from "./components/UserOrder/UserOrder";
 import ReviewByUser from "./components/ReviewByUser/ReviewByUser";
+import ShowReview from "./components/ShowReview/ShowReview";
 function App() {
   return (
     <>
@@ -26,6 +27,7 @@ function App() {
             <Banner></Banner>
             <Project></Project>
             <Services></Services>
+            <ShowReview/>
             <Contact></Contact>
             <Footer></Footer>
           </Route>
