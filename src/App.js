@@ -17,6 +17,10 @@ import ServiceDetail from "./components/ServiceDetail/ServiceDetail";
 import UserOrder from "./components/UserOrder/UserOrder";
 import ReviewByUser from "./components/ReviewByUser/ReviewByUser";
 import ShowReview from "./components/ShowReview/ShowReview";
+import AllOrder from "./components/Admin/AllOrder/AllOrder";
+import MakeAdmin from "./components/Admin/MakeAdmin/MakeAdmin";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import Welcome from "./components/Admin/Welcome/Welcome";
 function App() {
   return (
     <>
@@ -27,7 +31,7 @@ function App() {
             <Banner></Banner>
             <Project></Project>
             <Services></Services>
-            <ShowReview/>
+            <ShowReview />
             <Contact></Contact>
             <Footer></Footer>
           </Route>
@@ -44,16 +48,16 @@ function App() {
             <Footer></Footer>
           </Route>
 
-          <Route path="/service-booking/:id">
+          <PrivateRoute path="/service-booking/:id">
             <Navbar />
             <ServiceDetail></ServiceDetail>
             <Footer></Footer>
-          </Route>
-          <Route path="/orders">
+          </PrivateRoute>
+          <PrivateRoute path="/orders">
             <Navbar />
             <UserOrder />
             <Footer></Footer>
-          </Route>
+          </PrivateRoute>
           <Route path="/review">
             <Navbar />
             <ReviewByUser />
@@ -62,6 +66,7 @@ function App() {
 
           <Route path="/admin">
             <Navigation></Navigation>
+            <Welcome/>
           </Route>
           <Route path="/admin-add-service">
             <Navigation></Navigation>
@@ -74,6 +79,15 @@ function App() {
           <Route path="/admin-all-user">
             <Navigation></Navigation>
             <UserList></UserList>
+          </Route>
+          <Route path="/add-new-admin">
+            <Navigation></Navigation>
+            <MakeAdmin />
+          </Route>
+
+          <Route path="/admin-all-order-list">
+            <Navigation></Navigation>
+            <AllOrder />
           </Route>
           <Route path="*">
             <NotFound />

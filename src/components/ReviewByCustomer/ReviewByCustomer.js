@@ -6,7 +6,7 @@ const ReviewByCustomer = ({ review, isActive }) => {
 
   return (
     <Card
-      className={`bg-transparent ${isActive ? "active" : "not-active"}`}
+      className={`bg-transparent ${isActive ? "slide-active" : "not-active"}`}
       style={{ height: "350px" }}
     >
       <div className="d-flex">
@@ -14,6 +14,7 @@ const ReviewByCustomer = ({ review, isActive }) => {
           variant="top"
           className="img-fluid card-image ml-2 mt-3"
           src={image}
+          style={{ borderRadius: "100px" }}
         />
         <Card.Title className="mt-5 ml-4">{name}</Card.Title>
       </div>

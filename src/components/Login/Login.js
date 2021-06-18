@@ -8,9 +8,12 @@ import "./Login.css";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../redux/action/userAction";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 
 const Login = () => {
+  let history = useHistory();
+  let location = useLocation();
+  let { from } = location.state || { from: { pathname: "/" } };
   document.title = "Login";
   const loginMessage = useSelector((state) => state.user.msg);
   const passMsg = useSelector((state) => state.user.passMsg);
@@ -40,6 +43,7 @@ const Login = () => {
       password: data.password,
     };
     loginUser(dispatch(loginUser(userData)));
+    history.replace(from);
   };
 
   return (

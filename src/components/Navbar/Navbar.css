@@ -164,6 +164,10 @@
     display: block;
     margin: 0 auto;
   }
+  .user-image {
+    display: block;
+    margin: 0 auto;
+  }
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
@@ -180,6 +184,10 @@
     display: block;
     margin: 0 auto;
   }
+  .user-image {
+    display: block;
+    margin: 0 auto;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -193,6 +201,10 @@
     font-size: 1rem;
   }
   #nav-dropdown {
+    display: block;
+    margin: 0 auto;
+  }
+  .user-image {
     display: block;
     margin: 0 auto;
   }

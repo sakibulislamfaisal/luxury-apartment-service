@@ -43,7 +43,7 @@ export const SidebarData = [
 
   {
     title: "Order List",
-    path: "/all-order-list",
+    path: "/admin-all-order-list",
     icon: <FontAwesomeIcon icon={faShoppingBag} />,
     cName: "nav-text",
   },

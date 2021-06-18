@@ -8,6 +8,7 @@ import { userLogout } from "../../redux/action/userAction";
 import { NavDropdown } from "react-bootstrap";
 function Navbar() {
   const username = useSelector((state) => state.user.loggedInUserInfo.username);
+  const userImage = useSelector((state) => state.user.loggedInUserInfo.image);
   console.log(username);
   const dispatch = useDispatch();
 
@@ -41,7 +42,6 @@ function Navbar() {
               Home
             </Link>
           </li>
-
           <li className="nav-item">
             <Link to="/review" className="nav-links">
               Review
@@ -52,7 +52,6 @@ function Navbar() {
               Admin
             </Link>
           </li>
-
           {username && sessionStorage.jwtToken && (
             <li className="nav-item">
               <Link to="/orders" className="nav-links">
@@ -60,7 +59,6 @@ function Navbar() {
               </Link>
             </li>
           )}
-
           {username && sessionStorage.jwtToken && (
             <NavDropdown title={username} id="nav-dropdown">
               <Link
@@ -80,6 +78,16 @@ function Navbar() {
                 Logout
               </Link>
             </NavDropdown>
+          )}{" "}
+          {username && (
+            <li className="nav-item">
+              <img
+                src={userImage}
+                alt=""
+                className="user-image"
+                style={{ width: "40px", borderRadius: "20px" }}
+              />
+            </li>
           )}
           {username && sessionStorage.jwtToken ? (
             <li className="nav-item" style={{ display: "none" }}>
