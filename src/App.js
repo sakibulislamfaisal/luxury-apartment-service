@@ -26,6 +26,7 @@ import {
   AdminPrivateRoute,
 } from "./components/Admin/Login/Login";
 import AdminLogin from "./components/Admin/Login/AdminLogin";
+//.import UserProfile from "./components/UserProfile/UserProfile";
 function App() {
   return (
     <AuthProvider>
@@ -33,6 +34,7 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Navbar></Navbar>
+            {/* <UserProfile /> */}
             <Banner></Banner>
             <Project></Project>
             <Services></Services>

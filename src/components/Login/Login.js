@@ -11,6 +11,7 @@ import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { Link, useHistory, useLocation } from "react-router-dom";
 
 const Login = () => {
+  document.title = "Login Page";
   let history = useHistory();
   let location = useLocation();
   let { from } = location.state || { from: { pathname: "/" } };
@@ -43,7 +44,7 @@ const Login = () => {
       password: data.password,
     };
     loginUser(dispatch(loginUser(userData)));
-    history.replace(from);
+    if (loginMessage === "Login is successful!") history.replace(from);
   };
 
   return (

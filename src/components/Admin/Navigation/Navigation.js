@@ -8,6 +8,7 @@ import { IconContext } from "react-icons";
 import { useAuth } from "../Login/Login";
 
 function Navigation() {
+  document.title = "Admin Page";
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
   const auth = useAuth();

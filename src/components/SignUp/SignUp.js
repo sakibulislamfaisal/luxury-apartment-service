@@ -10,13 +10,13 @@ import "./SignUp.css";
 import { useDispatch, useSelector } from "react-redux";
 import { signupUser } from "../../redux/action/userAction";
 import { Link } from "react-router-dom";
-
+import { ProgressBar } from "react-bootstrap";
 const SignUp = () => {
   document.title = "SignUp";
   const userDetails = useSelector((state) => state.user.userDetails);
   const userMessage = useSelector((state) => state.user.msg);
-
   console.log(userDetails);
+  const [uploadPercentage, setUploadPercentage] = useState(0);
   const dispatch = useDispatch();
   const [imageURL, setImageURL] = useState(null);
   const validationSchema = Yup.object().shape({
@@ -38,7 +38,7 @@ const SignUp = () => {
   const formOptions = { resolver: yupResolver(validationSchema) };
 
   // get functions to build form with useForm() hook
-  const { register, handleSubmit, formState } = useForm(formOptions);
+  const { register, handleSubmit, formState, reset } = useForm(formOptions);
   const { errors } = formState;
   const handleFileChange = (event) => {
     //console.log(e.target.files[0]);
@@ -47,11 +47,32 @@ const SignUp = () => {
     imageData.set("key", "18ade17cde2c79bfba3f1032fe60cd36");
     imageData.append("image", event.target.files[0]);
 
+    const options = {
+      onUploadProgress: (progressEvent) => {
+        const { loaded, total } = progressEvent;
+        let percent = Math.floor((loaded * 100) / total);
+        console.log(`${loaded}kb of ${total}kb | ${percent}%`);
+
+        if (percent <= 100) {
+          setUploadPercentage(percent);
+        }
+      },
+    };
+
+    if (uploadPercentage) {
+      setTimeout(() => {
+        setUploadPercentage({ uploadPercentage: 0 });
+      }, 3000);
+    }
+
     axios
-      .post("https://api.imgbb.com/1/upload", imageData)
+      .post("https://api.imgbb.com/1/upload", imageData, options)
       .then(function (response) {
         console.log(response);
-        setImageURL(response.data.data.display_url);
+        setImageURL({
+          image: response.data.data.display_url,
+          uploadPercentage: 100,
+        });
       })
       .catch(function (error) {
         console.log(error);
@@ -67,6 +88,7 @@ const SignUp = () => {
       image: imageURL,
     };
     signupUser(dispatch(signupUser(userData)));
+    reset();
   };
 
   return (
@@ -153,7 +175,14 @@ const SignUp = () => {
                 name="image"
                 {...register("image")}
                 onChange={handleFileChange}
-              />
+              />{" "}
+              <br />
+              {uploadPercentage > 0 && (
+                <ProgressBar
+                  now={uploadPercentage}
+                  label={`${uploadPercentage}%`}
+                />
+              )}
               {errors.image && (
                 <p className="error-form">{errors.image.message}</p>
               )}

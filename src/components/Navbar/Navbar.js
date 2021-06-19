@@ -4,9 +4,19 @@ import "./Navbar.css";
 import logo from "../../assets/Image/heading.PNG";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogout } from "../../redux/action/userAction";
-
 import { NavDropdown } from "react-bootstrap";
+import UserProfile from "../UserProfile/UserProfile";
+
 function Navbar() {
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
   const username = useSelector((state) => state.user.loggedInUserInfo.username);
   const userImage = useSelector((state) => state.user.loggedInUserInfo.image);
   console.log(username);
@@ -62,12 +72,17 @@ function Navbar() {
           {username && sessionStorage.jwtToken && (
             <NavDropdown title={username} id="nav-dropdown">
               <Link
+                to="#"
                 style={{ style }}
-                to="/user-profile"
                 className="dropdown-item"
+                onClick={openModal}
               >
                 View Profile
               </Link>
+              <UserProfile
+                modalIsOpen={modalIsOpen}
+                closeModal={closeModal}
+              ></UserProfile>
               <Link
                 style={{ style }}
                 to="/"
@@ -92,7 +107,7 @@ function Navbar() {
           {username && sessionStorage.jwtToken ? (
             <li className="nav-item" style={{ display: "none" }}>
               <Link to="/login" className="nav-links" style={{ style }}>
-                <button className="hover:bg-pink-700 text-white   py-1 -mt-1 px-6 rounded-sm ">
+                <button className="bg-pink-700 hover:bg-pink-700 text-white   py-1 -mt-1 px-6 rounded-sm ">
                   Login
                 </button>
               </Link>
@@ -100,7 +115,7 @@ function Navbar() {
           ) : (
             <li className="nav-item" style={{ display: "block" }}>
               <Link to="/login" className="nav-links" style={{ style }}>
-                <button className="hover:bg-pink-700 text-white   py-1 mt-3 px-6 rounded-sm ">
+                <button className="btn btn-warning text-white   py-2 m-2 px-4 rounded-sm ">
                   Login
                 </button>
               </Link>

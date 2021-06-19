@@ -8,7 +8,7 @@ import {
 import jwtDecode from "jwt-decode";
 const axios = require("axios");
 
-export const signupUser = (data, history) => {
+export const signupUser = (data) => {
   console.log("signup data ", data);
 
   return function (dispatch) {
@@ -28,7 +28,6 @@ export const signupUser = (data, history) => {
           type: SIGNUP_USER,
           payload: message,
         });
-
         window.location.href = "/login";
       })
       .catch((err) => console.log(err));
@@ -79,6 +78,7 @@ export const loginUser = (data) => {
             payload: message,
             isLoggedIn: false,
           });
+          window.location.href = "/login";
         }
       })
       .catch((err) => console.log(err));
