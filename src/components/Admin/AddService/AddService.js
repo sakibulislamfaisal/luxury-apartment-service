@@ -9,7 +9,10 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { useForm } from "react-hook-form";
 import "./AddService.css";
 import { ProgressBar } from "react-bootstrap";
+import { useAuth } from "../Login/Login";
 const AddService = () => {
+  const auth = useAuth();
+  console.log("email", auth.user.email);
   document.title = "Add Service";
   const [imageURL, setImageURL] = useState(null);
   const [successMsg, setSuccessMsg] = useState(false);
@@ -58,10 +61,8 @@ const AddService = () => {
       .post("https://api.imgbb.com/1/upload", imageData, options)
       .then(function (response) {
         console.log(response);
-        setImageURL({
-          image: response.data.data.display_url,
-          uploadPercentage: 100,
-        });
+        setImageURL(response.data.data.display_url);
+        setUploadPercentage(100);
       })
       .catch(function (error) {
         console.log(error);
@@ -80,7 +81,8 @@ const AddService = () => {
     fetch(url, {
       method: "POST",
       headers: {
-        "content-type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Content-type": "application/json",
       },
       body: JSON.stringify(serviceData),
     })

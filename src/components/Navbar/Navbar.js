@@ -8,7 +8,7 @@ import { NavDropdown } from "react-bootstrap";
 import UserProfile from "../UserProfile/UserProfile";
 
 function Navbar() {
-  document.title = "Home Page"
+  document.title = "Home Page";
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
   function openModal() {

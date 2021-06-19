@@ -36,7 +36,7 @@ const ShowReview = () => {
         <Col sm={12} xl={12}>
           <Swiper
             spaceBetween={15}
-            slidesPerView={4}
+            slidesPerView={3}
             navigation
             autoplay={{
               delay: 1500,

@@ -69,10 +69,8 @@ const SignUp = () => {
       .post("https://api.imgbb.com/1/upload", imageData, options)
       .then(function (response) {
         console.log(response);
-        setImageURL({
-          image: response.data.data.display_url,
-          uploadPercentage: 100,
-        });
+        setImageURL(response.data.data.display_url);
+        setUploadPercentage(100);
       })
       .catch(function (error) {
         console.log(error);

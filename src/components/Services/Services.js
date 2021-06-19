@@ -6,7 +6,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import SingleService from "../SingleService/SingleService";
 const Services = () => {
-  document.title = "Services"
+ // document.title = "Services"
   const [services, setService] = useState([]);
 
   //data load from database

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./SingleService.css";
 import "./SingleService.scss";
 const SingleService = ({ service }) => {
-  document.title = " SingleService";
+  //document.title = " SingleService";
   // console.log(service);
   return (
     <div className="col-xs-12 col-sm-12 col-md-4 py-3 ">

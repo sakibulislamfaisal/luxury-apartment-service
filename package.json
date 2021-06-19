@@ -3,6 +3,7 @@
   "author": "faisal rahman",
   "version": "0.1.0",
   "private": true,
+ 
   "dependencies": {
     "@craco/craco": "^6.1.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",

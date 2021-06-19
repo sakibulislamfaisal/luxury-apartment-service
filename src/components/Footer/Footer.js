@@ -8,7 +8,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 const Footer = () => {
-  document.title = "Footer"
+ // document.title = ""
   return (
     <div className="footer-section py-5">
       <div className="container">

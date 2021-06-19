@@ -5,7 +5,7 @@ import bannerImage from "../../assets/Image/top.png";
 import { Link } from "react-router-dom";
 
 const Banner = () => {
-  document.title = "Banner"
+  // document.title = "Banner"
   return (
     <div className="banner-section py-5 mt-5">
       <div className="container">

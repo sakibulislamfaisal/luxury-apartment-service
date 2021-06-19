@@ -59,7 +59,10 @@ const Auth = () => {
     return firebase
       .auth()
       .signOut()
-      .then((res) => setUser(null));
+      .then((res) => {
+        setUser(null);
+        window.location.href = "/";
+      });
   };
   //google sign In
   const googleSignIn = () => {

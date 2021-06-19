@@ -59,6 +59,7 @@ const SplitForm = ({ handlePlaceOrder }) => {
       const payment = paymentMethod.id;
       handlePlaceOrder(payment);
       setPaymentError(null);
+      //window.location.href = "/";
     }
   };
 
