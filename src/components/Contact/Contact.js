@@ -12,7 +12,7 @@ const Contact = () => {
         <div className="row">
           <div className="col-xs-12 col-sm-12 col-md-12">
             <form
-              action="https://formspree.io/fr7199732@gmail.com"
+              action="https://formspree.io/f/meqvkngp"
               method="post"
               className="form-container py-3"
             >
