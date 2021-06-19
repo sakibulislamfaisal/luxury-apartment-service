@@ -6,7 +6,7 @@ const UserList = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4200/api/user/users")
+    fetch("https://luxury-apartment-service-serve.herokuapp.com/api/user/users")
       .then((resp) => resp.json())
       .then((resp) => {
         setUsers(resp.result);

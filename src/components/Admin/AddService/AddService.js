@@ -76,7 +76,7 @@ const AddService = () => {
       description: data.description,
       image: imageURL,
     };
-    const url = `http://localhost:4200/api/service/add-service`;
+    const url = `https://luxury-apartment-service-serve.herokuapp.com/api/service/add-service`;
 
     fetch(url, {
       method: "POST",

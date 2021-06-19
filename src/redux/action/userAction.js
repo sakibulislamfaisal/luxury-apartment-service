@@ -13,7 +13,7 @@ export const signupUser = (data) => {
 
   return function (dispatch) {
     const OPTIONS = {
-      url: "http://localhost:4200/api/user/signup/",
+      url: "https://luxury-apartment-service-serve.herokuapp.com/api/user/signup",
       data,
       method: "POST",
       headers: { "Content-type": "application/json" },
@@ -39,7 +39,7 @@ export const loginUser = (data) => {
   console.log("Login data", data);
   return function (dispatch) {
     var OPTIONS = {
-      url: "http://localhost:4200/api/user/login",
+      url: "https://luxury-apartment-service-serve.herokuapp.com/api/user/login",
       method: "POST",
       data,
       headers: {

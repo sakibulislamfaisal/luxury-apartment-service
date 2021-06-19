@@ -10,7 +10,7 @@ const UserOrder = () => {
   const email = useSelector((state) => state.user.loggedInUserInfo.email);
 
   useEffect(() => {
-    fetch("http://localhost:4200/api/service/email/" + email)
+    fetch("https://luxury-apartment-service-serve.herokuapp.com/api/service/email/" + email)
       .then((response) => response.json())
       .then((data) => {
         console.log(data.result);

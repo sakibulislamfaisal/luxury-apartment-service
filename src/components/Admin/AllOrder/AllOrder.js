@@ -10,7 +10,7 @@ const AllOrder = () => {
   //get service from database
   useEffect(() => {
     axios
-      .get("http://localhost:4200/api/service/all-order")
+      .get("https://luxury-apartment-service-serve.herokuapp.com/api/service/all-order")
       .then(function (response) {
         setOrderList(response.data.data);
         console.log(response);

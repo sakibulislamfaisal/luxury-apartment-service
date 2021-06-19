@@ -10,7 +10,7 @@ const ManageService = () => {
   //get service from database
   useEffect(() => {
     axios
-      .get("http://localhost:4200/api/service/all-service")
+      .get("https://luxury-apartment-service-serve.herokuapp.com/api/service/all-service")
       .then(function (response) {
         setServiceList(response.data.data);
         // console.log(response.data.data);

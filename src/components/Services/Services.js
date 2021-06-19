@@ -12,7 +12,7 @@ const Services = () => {
   //data load from database
   useEffect(() => {
     axios
-      .get("http://localhost:4200/api/service/all-service")
+      .get("https://luxury-apartment-service-serve.herokuapp.com/api/service/all-service")
       .then((res) => {
        // console.log(res);
         setService(res.data.data);

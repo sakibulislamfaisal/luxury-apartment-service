@@ -71,7 +71,7 @@ const ReviewByUser = () => {
       description: data.description,
       image: imageURL,
     };
-    const url = `http://localhost:4200/api/service/add-review`;
+    const url = `https://luxury-apartment-service-serve.herokuapp.com/api/service/add-review`;
 
     fetch(url, {
       method: "POST",

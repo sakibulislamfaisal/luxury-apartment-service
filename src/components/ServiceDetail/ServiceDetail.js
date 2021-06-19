@@ -19,7 +19,7 @@ const ServiceDetail = (props) => {
   const [paypal, setPaypal] = useState(false);
   // console.log(username, email);
   useEffect(() => {
-    fetch("http://localhost:4200/api/service/" + id)
+    fetch("https://luxury-apartment-service-serve.herokuapp.com/api/service/" + id)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);

@@ -24,7 +24,7 @@ const MakeAmin = () => {
     const AdminData = {
       email: data.email,
     };
-    const url = `http://localhost:4200/api/user/make-admin`;
+    const url = `https://luxury-apartment-service-serve.herokuapp.com/api/user/make-admin`;
 
     fetch(url, {
       method: "POST",
