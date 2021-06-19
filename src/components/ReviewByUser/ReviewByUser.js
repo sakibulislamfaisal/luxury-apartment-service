@@ -24,7 +24,7 @@ const ReviewByUser = () => {
   const formOptions = { resolver: yupResolver(validationSchema) };
 
   // get functions to build form with useForm() hook
-  const { register, handleSubmit, formState } = useForm(formOptions);
+  const { register, handleSubmit, formState,reset } = useForm(formOptions);
   const { errors } = formState;
 
   const handleFileChange = (event) => {
@@ -76,7 +76,8 @@ const ReviewByUser = () => {
     fetch(url, {
       method: "POST",
       headers: {
-        "content-type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Content-type": "application/json",
       },
       body: JSON.stringify(reviewData),
     })
@@ -85,6 +86,7 @@ const ReviewByUser = () => {
         console.log(data);
         setSuccessMsg(true);
       });
+      reset();
   };
 
   //success message
