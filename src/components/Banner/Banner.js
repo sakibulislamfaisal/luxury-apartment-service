@@ -5,6 +5,7 @@ import bannerImage from "../../assets/Image/top.png";
 import { Link } from "react-router-dom";
 
 const Banner = () => {
+  document.title = "Banner"
   return (
     <div className="banner-section py-5 mt-5">
       <div className="container">
@@ -19,7 +20,7 @@ const Banner = () => {
                   Online Easte Agency, the mordern way to sell your own home,
                   You can use Griffin Residential to market your property
                 </p>
-                <Link to="/booking">
+                <Link to="/sign-up">
                   {" "}
                   <button className="default-button uppercase">Booking</button>
                 </Link>

@@ -1,6 +1,7 @@
 import React from "react";
 import "./Contact.css";
 const Contact = () => {
+  document.title = "Contact Us"
   return (
     <div className="contact-section py-4">
       <div className="container">
@@ -38,11 +39,11 @@ const Contact = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="email">Phone Number</label>
+                <label htmlFor="phone">Phone Number</label>
                 <input
                   type="text"
-                  id="email"
-                  name="Email"
+                  id="phone"
+                  name="phone"
                   className="form-control"
                   placeholder="Enter Your Phone Number"
                   autoComplete="off"

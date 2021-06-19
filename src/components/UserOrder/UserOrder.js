@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const UserOrder = () => {
+  document.title = " UserOrder";
   const [userOrder, setUserOrder] = useState([]);
   const email = useSelector((state) => state.user.loggedInUserInfo.email);
 

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
 import axios from "axios";
 const AllOrder = () => {
+  document.title = "All Order"
   const [orderList, setOrderList] = useState([]);
 
   //get service from database

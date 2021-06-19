@@ -4,6 +4,7 @@ import { faGooglePlusG } from "@fortawesome/free-brands-svg-icons";
 import { useAuth } from "./Login";
 import { Link } from "react-router-dom";
 const AdminLogin = () => {
+  document.title = "Admin Login"
   const auth = useAuth();
   console.log(auth);
   return (

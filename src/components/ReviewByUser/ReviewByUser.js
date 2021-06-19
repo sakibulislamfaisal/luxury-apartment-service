@@ -2,11 +2,12 @@ import axios from "axios";
 import React, { useState } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-
+import { ProgressBar } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
 const ReviewByUser = () => {
   document.title = "Add Review";
+  const [uploadPercentage, setUploadPercentage] = useState(0);
   const [imageURL, setImageURL] = useState(null);
   const [successMsg, setSuccessMsg] = useState(false);
   const validationSchema = Yup.object().shape({
@@ -33,11 +34,32 @@ const ReviewByUser = () => {
     imageData.set("key", "18ade17cde2c79bfba3f1032fe60cd36");
     imageData.append("image", event.target.files[0]);
 
+    const options = {
+      onUploadProgress: (progressEvent) => {
+        const { loaded, total } = progressEvent;
+        let percent = Math.floor((loaded * 100) / total);
+        console.log(`${loaded}kb of ${total}kb | ${percent}%`);
+
+        if (percent <= 100) {
+          setUploadPercentage(percent);
+        }
+      },
+    };
+
+    if (uploadPercentage) {
+      setTimeout(() => {
+        setUploadPercentage({ uploadPercentage: 0 });
+      }, 3000);
+    }
+
     axios
-      .post("https://api.imgbb.com/1/upload", imageData)
+      .post("https://api.imgbb.com/1/upload", imageData, options)
       .then(function (response) {
         console.log(response);
-        setImageURL(response.data.data.display_url);
+        setImageURL({
+          image: response.data.data.display_url,
+          uploadPercentage: 100,
+        });
       })
       .catch(function (error) {
         console.log(error);
@@ -140,6 +162,13 @@ const ReviewByUser = () => {
                 onChange={handleFileChange}
               />
             </div>
+            <br />
+            {uploadPercentage > 0 && (
+              <ProgressBar
+                now={uploadPercentage}
+                label={`${uploadPercentage}%`}
+              />
+            )}
           </div>
 
           <div className="form-group ">

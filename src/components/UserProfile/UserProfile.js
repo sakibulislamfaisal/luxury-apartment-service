@@ -4,6 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
+import "./UserProfile.css";
 const customStyles = {
   content: {
     top: "50%",
@@ -18,7 +19,7 @@ const customStyles = {
 };
 Modal.setAppElement("#root");
 const UserProfile = ({ modalIsOpen, closeModal }) => {
-  document.title = "User Profile"
+  document.title = "User Profile";
   const validationSchema = Yup.object().shape({
     title: Yup.string().required("service is required!"),
   });
@@ -36,7 +37,7 @@ const UserProfile = ({ modalIsOpen, closeModal }) => {
   const email = useSelector((state) => state.user.loggedInUserInfo.email);
   const password = useSelector((state) => state.user.loggedInUserInfo.password);
   const role = useSelector((state) => state.user.loggedInUserInfo.role);
- // const userInfo = useSelector((state) => state.user.loggedInUserInfo);
+  // const userInfo = useSelector((state) => state.user.loggedInUserInfo);
   return (
     <div>
       <Modal

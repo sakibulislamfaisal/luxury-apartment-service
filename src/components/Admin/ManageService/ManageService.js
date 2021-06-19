@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
 import axios from "axios";
 const ManageService = () => {
+  document.title = "Admin Manage Service"
   const [serviceList, setServiceList] = useState([]);
 
   //get service from database

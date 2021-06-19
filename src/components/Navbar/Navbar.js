@@ -8,6 +8,7 @@ import { NavDropdown } from "react-bootstrap";
 import UserProfile from "../UserProfile/UserProfile";
 
 function Navbar() {
+  document.title = "Home Page"
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
   function openModal() {
@@ -52,11 +53,13 @@ function Navbar() {
               Home
             </Link>
           </li>
-          <li className="nav-item">
-            <Link to="/review" className="nav-links">
-              Review
-            </Link>
-          </li>
+          {username ? null : (
+            <li className="nav-item">
+              <Link to="/review" className="nav-links">
+                Review
+              </Link>
+            </li>
+          )}
           <li className="nav-item">
             <Link to="/admin-login" className="nav-links">
               Admin
@@ -114,8 +117,8 @@ function Navbar() {
             </li>
           ) : (
             <li className="nav-item" style={{ display: "block" }}>
-              <Link to="/login" className="nav-links" style={{ style }}>
-                <button className="btn btn-warning text-white   py-2 m-2 px-4 rounded-sm ">
+              <Link to="/login" className="nav-links " style={{ style }}>
+                <button className="success-button hover:bg-green-700 text-white   py-2 m-2 px-4 rounded-sm ">
                   Login
                 </button>
               </Link>
