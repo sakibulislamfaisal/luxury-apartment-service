@@ -19,8 +19,8 @@
 .navbar-logo {
   color: black;
   justify-self: start;
-  margin-left: 40px;
-  margin-top: -20px;
+  margin-left: -50px !important;
+  margin-top: -1px;
   cursor: pointer;
   text-decoration: none;
   font-size: 1rem;
@@ -28,13 +28,14 @@
 
 .nav-menu {
   display: grid;
-  grid-template-columns: repeat(8, auto);
+  grid-template-columns: repeat(7, auto);
   grid-gap: 5px;
   list-style: none;
   text-align: center;
   width: 70vw;
   justify-content: end;
-  margin-right: 2rem;
+  margin-left: 9rem;
+  margin-top: -1px;
 }
 
 .nav-item {
@@ -209,3 +210,15 @@
     margin: 0 auto;
   }
 }
+/* 
+@media (min-width: 992px) and (max-width: 1199px) {
+  .navbar-logo img {
+    color: black;
+    justify-self: start;
+    margin-left: -120px;
+    margin-top: -26px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+} */
